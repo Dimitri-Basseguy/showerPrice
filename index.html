@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quel est le prix d'une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.">
+  <title>Calculateur Coût Douche</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    
+    <div class="mt-4 mb-12">
+      <h1 class="text-2xl font-bold mb-4 text-center">Quel est le prix d'une douche au gaz ?</h1>
+      <p class="text-sm text-slate-500 text-center">Quel est le prix d'une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block font-semibold">Prix du kWh (€)</label>
+        <input type="number" id="prixKWh" class="w-full p-2 border rounded" step="0.01">
+      </div>
+      <div>
+        <label class="block font-semibold">Débit en litres d'eau par minute de votre douche</label>
+        <input type="number" id="litreMinute" class="w-full p-2 border rounded">
+      </div>
+      <div>
+        <label class="block font-semibold">Prix du m³ d'eau (€)</label>
+        <input type="number" id="prixM3" class="w-full p-2 border rounded" step="0.01">
+      </div>
+      <div>
+        <label class="block font-semibold">Nombre total de douches par semaine</label>
+        <input type="text" id="nbDouches" class="w-full p-2 border rounded" placeholder="Ex: 7+4+1">
+      </div>
+    </div>
+
+    <button onclick="calculerCout()" class="w-full bg-blue-500 text-white py-2 rounded font-bold">Calculer</button>
+
+    <div class="mt-6">
+      <h3 class="text-xl font-bold mb-2">Résultats</h3>
+      <table class="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border p-2">Minutes</th>
+            <th class="border p-2">Coût Gaz (€)</th>
+            <th class="border p-2">Coût Eau (€)</th>
+            <th class="border p-2">Coût / An (€)</th>
+          </tr>
+        </thead>
+        <tbody id="resultat"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="showerScript.js"></script>
+</body>
+
+</html>
