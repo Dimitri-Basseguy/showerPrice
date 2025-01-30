@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quel est le prix d'une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.">
+  <title>Calculateur Coût Douche</title>
+  <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-6">
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    
+    <div class="mt-4 mb-12">
+      <img class="mx-auto max-w-[100px] my-4" src="shower.gif" alt="">
+      <h1 class="text-2xl font-bold mb-4 text-center">Quel est le prix d'une douche <span class="text-emerald-500">au gaz</span> ?</h1>
+      <p class="text-sm text-slate-500 text-center">Quel est le prix d'une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+      <div>
+        <label class="block font-semibold">Prix du kWh (€)</label>
+        <p class="text-xs my-1 text-slate-500">(Consulter votre facture fournisseur gaz)</p>
+        <input type="number" id="prixKWh" class="w-full p-2 border rounded border-slate-400" step="0.01">
+      </div>
+      <div>
+        <label class="block font-semibold">Débit en litres d'eau par minute de votre douche</label>
+        <p class="text-xs my-1 text-slate-500">(Mesurez votre débit pendant 1 minute)</p>
+        <input type="number" id="litreMinute" class="w-full p-2 border rounded border-slate-400">
+      </div>
+      <div>
+        <label class="block font-semibold">Prix du m³ d'eau (€)</label>
+        <p class="text-xs my-1 text-slate-500">(Consultez le tarif de l'eau de votre commune)</p>
+        <input type="number" id="prixM3" class="w-full p-2 border rounded border-slate-400" step="0.01">
+      </div>
+      <div>
+        <label class="block font-semibold">Nombre total de douches par semaine</label>
+        <input type="text" id="nbDouches" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 7+4+1">
+      </div>
+      <div>
+        <label class="block font-semibold">Durée d'une douche (min)</label>
+        <p class="text-xs my-1 text-slate-500">(Chronométrez la durée d'une douche)</p>
+        <input type="text" id="nbDuree" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 13">
+      </div>
+    </div>
+
+    <button onclick="calculerCout()" class="w-full bg-emerald-500 hover:bg-emerald-600 cursor-pointer text-white py-2 rounded font-bold">Calculer</button>
+
+    <div class="mt-6">
+      <h3 class="text-xl font-bold mb-2">Résultats</h3>
+      <table class="w-full border-collapse border border-pink-300">
+        <thead>
+          <tr class="bg-slate-200">
+            <th class="border p-2">Durée (min)</th>
+            <th class="border p-2">Coût Gaz (€)</th>
+            <th class="border p-2">Coût Eau (€)</th>
+            <th class="border p-2">Coût / An (€)</th>
+          </tr>
+        </thead>
+        <tbody id="resultat"></tbody>
+      </table>
+    </div>
+    <p class="text-center text-xs text-slate-400 mt-4">gif by <a class="underline hover:text-emerald-500" href="https://tenor.com/fr/users/andrey88" target="_blank" rel="noopener noreferrer">andrey88</a></p>
+  </div>
+  <script src="showerScript.js"></script>
+</body>
+
+</html>

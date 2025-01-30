@@ -3,10 +3,11 @@ function calculerCout() {
   const litreMinute = parseFloat(document.getElementById('litreMinute').value);
   const prixM3 = parseFloat(document.getElementById('prixM3').value);
   const nbDouchesInput = document.getElementById('nbDouches').value;
+  const nbDuree = parseFloat(document.getElementById('nbDuree').value);
 
-  if (isNaN(prixKWh) || isNaN(litreMinute) || isNaN(prixM3) || nbDouchesInput.trim() === "") {
-    alert("Veuillez remplir tous les champs correctement.");
-    return;
+  if (isNaN(prixKWh) || isNaN(litreMinute) || isNaN(prixM3) || nbDouchesInput.trim() === "" || isNaN(nbDuree)) {
+      alert("Veuillez remplir tous les champs correctement.");
+      return;
   }
 
   const nbDouches = nbDouchesInput.split('+').map(Number).reduce((a, b) => a + b, 0);
@@ -17,13 +18,18 @@ function calculerCout() {
   const resultats = document.getElementById('resultat');
   resultats.innerHTML = '';
 
-  [1, 5, 10, 15, 20].forEach(minute => {
-    const coutGazTotal = (coutGazMinute * minute).toFixed(2);
-    const coutEauTotal = (coutEauMinute * minute).toFixed(2);
-    const coutAnnuel = (nbDouches * 52 * (parseFloat(coutGazTotal) + parseFloat(coutEauTotal))).toFixed(2);
+  let durees = [1, 5, 10, 15, 20, nbDuree];
+  durees = [...new Set(durees)].sort((a, b) => a - b);
 
-    resultats.innerHTML += `
-          <tr>
+  durees.forEach(minute => {
+      const coutGazTotal = (coutGazMinute * minute).toFixed(2);
+      const coutEauTotal = (coutEauMinute * minute).toFixed(2);
+      const coutAnnuel = (nbDouches * 52 * (parseFloat(coutGazTotal) + parseFloat(coutEauTotal))).toFixed(2);
+      
+      const highlightClass = minute === nbDuree ? 'bg-emerald-300' : '';
+
+      resultats.innerHTML += `
+          <tr class="${highlightClass}">
               <td class="border p-2 text-center">${minute}</td>
               <td class="border p-2 text-center">${coutGazTotal} €</td>
               <td class="border p-2 text-center">${coutEauTotal} €</td>
