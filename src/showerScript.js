@@ -37,3 +37,15 @@ function calculerCout() {
           </tr>`;
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const kofiButton = document.getElementById("kofi");
+
+    kofiButton.addEventListener("click", function () {
+        console.log('click');
+        
+        if (window.umami) {
+            umami.track("Ko-fi Donation Click");
+        }
+    });
+});
