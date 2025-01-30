@@ -15,17 +15,17 @@
     <div class="mt-4 mb-12">
       <img class="mx-auto max-w-[100px] my-4" src="shower.gif" alt="">
       <h1 class="text-2xl font-bold mb-4 text-center">Quel est le prix d'une douche <span class="text-emerald-500">au gaz</span> ?</h1>
-      <p class="text-sm text-slate-500 text-center">Quel est le prix d'une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.</p>
+      <p class="text-sm text-slate-500 text-center">Vous vous demandez combien coûte une douche au gaz ? Estimez vos coûts annuels en fonction de votre consommation d'eau et d'énergie avec ce calculateur simple.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-4 mb-4">
       <div>
-        <label class="block font-semibold">Prix du kWh (€)</label>
+        <label class="block font-semibold">Prix du kWh de gaz (€)</label>
         <p class="text-xs my-1 text-slate-500">(Consulter votre facture fournisseur gaz)</p>
         <input type="number" id="prixKWh" class="w-full p-2 border rounded border-slate-400" step="0.01">
       </div>
       <div>
-        <label class="block font-semibold">Débit en litres d'eau par minute de votre douche</label>
+        <label class="block font-semibold">Débit de votre douche (L/min)</label>
         <p class="text-xs my-1 text-slate-500">(Mesurez votre débit pendant 1 minute)</p>
         <input type="number" id="litreMinute" class="w-full p-2 border rounded border-slate-400">
       </div>
@@ -35,11 +35,12 @@
         <input type="number" id="prixM3" class="w-full p-2 border rounded border-slate-400" step="0.01">
       </div>
       <div>
-        <label class="block font-semibold">Nombre total de douches par semaine</label>
-        <input type="text" id="nbDouches" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 7+4+1">
+        <label class="block font-semibold">Nombre total de douches prises par semaine</label>
+        <p class="text-xs my-1 text-slate-500">(Par tous les membres du foyer)</p>
+        <input type="text" id="nbDouches" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 7 + 4 + 1">
       </div>
       <div>
-        <label class="block font-semibold">Durée d'une douche (min)</label>
+        <label class="block font-semibold">Durée moyenne d'une douche (minutes)</label>
         <p class="text-xs my-1 text-slate-500">(Chronométrez la durée d'une douche)</p>
         <input type="text" id="nbDuree" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 13">
       </div>
@@ -61,7 +62,12 @@
         <tbody id="resultat"></tbody>
       </table>
     </div>
-    <p class="text-center text-xs text-slate-400 mt-4">gif by <a class="underline hover:text-emerald-500" href="https://tenor.com/fr/users/andrey88" target="_blank" rel="noopener noreferrer">andrey88</a></p>
+    <p class="text-center mt-8">Ce calculateur vous a aidé à mieux gérer votre consommation ? Si vous l'avez apprécié, un petit don serait une belle façon de me soutenir ! 😊💙</p>
+    <a class="rounded bg-emerald-500 hover:bg-emerald-600 text-white mt-4 px-4 py-2 mx-auto flex items-center justify-center max-w-fit gap-4 hover:-translate-y-0.5" href="https://ko-fi.com/dimitribasseguy" target="_blank" rel="noopener noreferrer">
+      <img class="max-w-8" src="logomarkLogo.webp" alt="soutnez moi sur ko-fi" class="mx-auto my-4">
+      <p>Je fais un don</p>
+    </a>
+    <p class="text-center text-xs text-slate-400 mt-4">made with ❤️ by <a class="underline hover:text-emerald-500" href="https://www.malt.fr/profile/dimitribasseguy" target="_blank" rel="noopener noreferrer">Dimitri Basseguy</a> | gif by<a class="underline hover:text-emerald-500" href="https://tenor.com/fr/users/andrey88" target="_blank" rel="noopener noreferrer"> <a class="underline hover:text-emerald-500" href="https://tenor.com/fr/users/andrey88" target="_blank" rel="noopener noreferrer">andrey88</a></p>
   </div>
   <script src="showerScript.js"></script>
 </body>
