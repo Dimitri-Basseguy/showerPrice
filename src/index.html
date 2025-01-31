@@ -44,25 +44,38 @@
       <div>
         <label class="block font-semibold">Nombre total de douches prises par semaine</label>
         <p class="text-xs my-1 text-slate-500">(Par tous les membres du foyer)</p>
-        <input type="text" id="nbDouches" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 7 + 4 + 1">
+        <input type="number" id="nbDouches" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 7 + 4 + 1">
       </div>
       <div>
         <label class="block font-semibold">Durée moyenne d'une douche (minutes)</label>
         <p class="text-xs my-1 text-slate-500">(Chronométrez la durée d'une douche)</p>
-        <input type="text" id="nbDuree" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 13">
+        <input type="number" id="nbDuree" class="w-full p-2 border rounded border-slate-400" placeholder="Ex: 13">
       </div>
     </div>
+
+    <!-- <button onclick="autoRemplir()" class="w-full bg-blue-500 hover:bg-blue-600 cursor-pointer text-white py-2 rounded font-bold mt-2">Auto-remplir pour test</button>
+
+    <script>
+      function autoRemplir() {
+        document.getElementById('prixKWh').value = 0.0716;
+        document.getElementById('litreMinute').value = 15;
+        document.getElementById('prixM3').value = 4,78;
+        document.getElementById('nbDouches').value = 12;
+        document.getElementById('nbDuree').value = 13;
+      }
+    </script> -->
 
     <button onclick="calculerCout()" class="w-full bg-emerald-500 hover:bg-emerald-600 cursor-pointer text-white py-2 rounded font-bold">Calculer</button>
 
     <div class="mt-6">
       <h3 class="text-xl font-bold mb-2">Résultats</h3>
-      <table class="w-full border-collapse border border-pink-300">
+      <table class="w-full border-collapse border border-pink-300 text-xs md:text-base">
         <thead>
           <tr class="bg-slate-200">
             <th class="border p-2">Durée (min)</th>
             <th class="border p-2">Coût Gaz (€)</th>
             <th class="border p-2">Coût Eau (€)</th>
+            <th class="border p-2">Coût / douche (€)</th>
             <th class="border p-2">Coût / An (€)</th>
           </tr>
         </thead>

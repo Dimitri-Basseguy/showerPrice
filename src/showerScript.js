@@ -5,7 +5,7 @@ function calculerCout() {
   const nbDouchesInput = document.getElementById('nbDouches').value;
   const nbDuree = parseFloat(document.getElementById('nbDuree').value);
 
-  if (isNaN(prixKWh) || isNaN(litreMinute) || isNaN(prixM3) || nbDouchesInput.trim() === "" || isNaN(nbDuree)) {
+  if (isNaN(prixKWh) || isNaN(litreMinute) || isNaN(prixM3) || isNaN(nbDouchesInput) === "" || isNaN(nbDuree)) {
       alert("Veuillez remplir tous les champs correctement.");
       return;
   }
@@ -14,7 +14,7 @@ function calculerCout() {
 
   const prixLitreEau = prixM3 / 1000; // Prix d'1 litre d'eau
   const coutEauMinute = litreMinute * prixLitreEau;
-  const coutGazMinute = 0.04652 * prixKWh; // Estimation de 0,04652 kWh consommé par minute
+  const coutGazMinute = 0.698 * prixKWh; // Estimation de 0,04652 kWh consommé par minute
   const resultats = document.getElementById('resultat');
   resultats.innerHTML = '';
 
@@ -24,6 +24,7 @@ function calculerCout() {
   durees.forEach(minute => {
       const coutGazTotal = (coutGazMinute * minute).toFixed(2);
       const coutEauTotal = (coutEauMinute * minute).toFixed(2);
+      const coutUneDoucheTotal = (parseFloat(coutEauTotal) + parseFloat(coutGazTotal)).toFixed(2);
       const coutAnnuel = (nbDouches * 52 * (parseFloat(coutGazTotal) + parseFloat(coutEauTotal))).toFixed(2);
       
       const highlightClass = minute === nbDuree ? 'bg-emerald-300' : '';
@@ -33,6 +34,7 @@ function calculerCout() {
               <td class="border p-2 text-center">${minute}</td>
               <td class="border p-2 text-center">${coutGazTotal} €</td>
               <td class="border p-2 text-center">${coutEauTotal} €</td>
+              <td class="border p-2 text-center">${coutUneDoucheTotal} €</td>
               <td class="border p-2 text-center">${coutAnnuel} €</td>
           </tr>`;
   });
